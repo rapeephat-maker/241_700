@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <!--ชื่อ: <input 
+    id = "fname"
+    class="input"
+    name = "fname"
+    value="ชื่อทดสอบ">
+    นามสกุล: <input type="นามสกุลทดสอบ"
+    id = "lname"
+    class="input"
+    type="text"
+    name = "lname"
+    value="นามสกุลทดสอบ">
+    เบอร์โทร:<input
+    id="phone"
+    class="input"
+    type="text"
+    name="phone"
+    value="00000000">
+    งานอดิเรก:
+    <input type="checkbox" name="fname" value="ฟุตบอล">ฟุตบอล
+    <input type="checkbox" name="fname" value="บาสเกตบอล">บาสเกตบอล
+    <input type="checkbox" name="fname" value="ว่ายน้ำ">ว่ายน้ำ-->
+
+    <input type = "radio" name = "gender" value = "male" onchange="changeGender()" >Male
+    <input type = "radio" name = "gender" value = "female" onchange="changeGender()" >Female
+    
+
+    
+    <script>
+       
+        /*let fnameInput = document.getElementById('fname');
+        console.log(fnameInput.value);
+        console.log(fnameInput);
+        let inputs = document.querySelector('#fname');
+        console.log(inputs.value);  
+        console.log(inputs.length);
+        for (let i = 0; i < inputs.length; i++) {
+            console.log(inputs[i].value);
+        }
+        let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        console.log(checkboxes);
+        for(let i = 0; i < checkboxes.length; i++) {
+            console.log(checkboxes[i].value);
+        }
+        function userClick(){
+            console.log("Button was clicked!");
+        }
+        function divClick(){
+            console.log("Div was clicked!");
+        }*/
+        function changeGender(){
+            // เลือก gender ทั้งหมด
+            let genders = document.querySelectorAll('input[name="gender"]');
+            for(let i =0;i<genders.length;i++){
+                if(genders[i].checked){
+                    console.log("Gender selected: " + genders[i].value);
+            }
+            //ดูว่าอันไหนเช็ค
+        }
+    }
+    </script>
+</body>
+</html>
