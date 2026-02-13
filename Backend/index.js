@@ -59,10 +59,8 @@ app.delete('/users/:id', (req, res) => {
     
      res.json({
         message: "User deleted successfully",
-        data: {
-            user: users[selectedIndex],
             indexDeleted: selectedIndex
-        }
+        
     });
 
 
