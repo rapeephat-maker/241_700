@@ -4,6 +4,11 @@ const port = 8000;
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 let conn = null;
+const cors = require('cors');
+app.use(cors());
+app.use(bodyParser.json());
+
+
 const initmysql = async () => {
     conn = await mysql.createConnection({
         host: 'localhost',

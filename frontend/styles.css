@@ -105,9 +105,32 @@ textarea {
 }
 
 .button:hover {
-    background-color: #f10000;
+    background-color: #ff8e8e;
 }
 
 .button:active {
     transform: scale(0.98);
+}
+.message {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 10px 0;
+    display: none;
+    color: #ffffff;
+}
+
+.message.success {
+    background-color: #e6ffed;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+    display: block;
+}
+
+.message.danger {
+    background-color: #fdecea;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+    display: block;
 }
