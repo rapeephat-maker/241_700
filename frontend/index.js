@@ -1,9 +1,9 @@
 const validateData = (userdata) => {
     let error = [];
-    if (!userdata.firsname) {
+    if (!userdata.firstname) {
         error.push('กรุณากรอกชื่อ');
     }
-    if (!userdata.lastbname) {
+    if (!userdata.lastname) {
         error.push('กรุณากรอกนามสกุล');
     }
     if (!userdata.age) {
@@ -38,8 +38,8 @@ const submitData = async () => {
         }
 
         let userData = {
-            firsname: firstNameDOM.value,
-            lastbname: lastNameDOM.value,
+            firstname: firstNameDOM.value,
+            lastname: lastNameDOM.value,
             age: ageDOM.value,
             gender: genderDOM.value,
             description: descriptionDOM.value,
@@ -60,15 +60,24 @@ const submitData = async () => {
 
 
     } catch (error) {
-        let htmlData = '<div>'+(error.message || 'เกิดข้อผิดพลาดในการบันทึกข้อมูล')+'</div>';
-        if(error.error && error.error.length > 0) {
+        console.log('error message:', error.message);
+        console.log('error details:', error.error);
+
+        if (error.response) {
+            console.log("Error response:", error.response.data.message);
+            error.message = error.response.data.message
+            error.errors = error.response.data.errors
+        }
+
+        let htmlData = '<div>' + (error.message || 'เกิดข้อผิดพลาดในการบันทึกข้อมูล') + '</div>';
+        if (error.error && error.error.length > 0) {
             htmlData += '<ul>';
-            for(let i=0; i<error.error.length; i++) {
+            for (let i = 0; i < error.error.length; i++) {
                 htmlData += `<li>${error.error[i]}</li>`;
             }
             htmlData += '</ul>';
         }
-    
+
         messageDOM.innerHTML = htmlData;
         messageDOM.className = "message danger";
 
