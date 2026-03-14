@@ -50,14 +50,16 @@ const validateData = (userdata) => {
 // path : POST /users
 app.post('/users', async (req, res) => {
     try {
+        let user = req.body;
         const errors = validateData(user);
+
         if(errors.length>0){
             throw{
                 message:'กรุณากรอกข้อมูลให้ครบ',
                 errors:errors
             }
         }
-        let user = req.body;
+     
         const results = await conn.query('INSERT INTO users SET ?',user);
         console.log('results:',results);
         res.json({
